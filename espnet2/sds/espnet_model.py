@@ -127,7 +127,7 @@ class ESPnetSDSModelInterface(AbsESPnetModel):
             self.text2speech = ChatTTSModel()
         else:
             self.text2speech = ESPnetTTSModel(tag)
-        self.text2speech.warmup()
+        # self.text2speech.warmup()
         yield gr.Textbox(visible=True), gr.Textbox(visible=True), gr.Audio(visible=True)
 
     def handle_LLM_selection(self, option: str):
@@ -152,7 +152,7 @@ class ESPnetSDSModelInterface(AbsESPnetModel):
         )
         self.LLM_curr_name = option
         self.LM_pipe = HuggingFaceLLM(access_token=self.access_token, tag=option)
-        self.LM_pipe.warmup()
+        # self.LM_pipe.warmup()
         yield gr.Textbox(visible=True), gr.Textbox(visible=True), gr.Audio(visible=True)
 
     def handle_ASR_selection(self, option: str):
@@ -191,7 +191,7 @@ class ESPnetSDSModelInterface(AbsESPnetModel):
         else:
             self.s2t = ESPnetASRModel(tag=option)
 
-        self.s2t.warmup()
+        # self.s2t.warmup()
         yield gr.Textbox(visible=True), gr.Textbox(visible=True), gr.Audio(visible=True)
 
     def handle_E2E_selection(self):
@@ -203,7 +203,7 @@ class ESPnetSDSModelInterface(AbsESPnetModel):
         """
         if self.client is None:
             self.client = MiniOmniE2EModel()
-            self.client.warmup()
+            # self.client.warmup()
 
     def handle_type_selection(
         self, option: str, TTS_radio: str, ASR_radio: str, LLM_radio: str
