@@ -324,10 +324,11 @@ class ESPnetSDSModelInterface(AbsESPnetModel):
         """
         orig_sr = sr
         sr = 16000
-        if self.client is not None:
-            array = self.vad_model(y, orig_sr, binary=True)
-        else:
-            array = self.vad_model(y, orig_sr)
+        # if self.client is not None:
+        #     array = self.vad_model(y, orig_sr, binary=True)
+        # else:
+        #     array = self.vad_model(y, orig_sr)
+        array = y
         change = False
         if array is not None:
             print("VAD: end of speech detected")
