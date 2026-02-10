@@ -94,7 +94,7 @@ class HuggingFaceLLM(AbsLLM):
         with torch.no_grad():
             output = self.LM_pipe(
                 chat_messages,
-                max_new_tokens=64,
+                max_new_tokens=1024,
                 min_new_tokens=0,
                 temperature=0.0,
                 do_sample=False,
